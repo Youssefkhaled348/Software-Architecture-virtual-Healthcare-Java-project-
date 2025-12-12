@@ -1,22 +1,23 @@
-import java.io.Serializable;
+public class Patient extends User {
 
-public class Prescription implements Serializable {
-    private String id;
-    private String patientId;
-    private String providerId;
-    private String medication;
-    private String instructions;
+    private String recordID;
+    private int phone;
 
-    public Prescription(String id, String patientId, String providerId, String medication, String instructions) {
-        this.id = id;
-        this.patientId = patientId;
-        this.providerId = providerId;
-        this.medication = medication;
-        this.instructions = instructions;
+    public Patient(String id, String username, String password, String recordID, int phone) {
+        super(id, username, password);
+        this.recordID = recordID;
+        this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Rx %s Patient:%s Medication:%s (%s)", id, patientId, medication, instructions);
+    public void viewProviders() {
+        System.out.println("Listing providers...");
+    }
+
+    public void bookAppointment() {
+        System.out.println("Appointment booked.");
+    }
+
+    public void giveFeedback() {
+        System.out.println("Feedback submitted.");
     }
 }
